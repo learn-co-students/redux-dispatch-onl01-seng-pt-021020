@@ -1,4 +1,7 @@
-function changeState(state, action){
+let state;
+
+
+function changeState(state= { count: 0 }, action) {
   switch (action.type) {
     case 'INCREASE_COUNT':
       return {count: state.count + 1}
@@ -7,7 +10,6 @@ function changeState(state, action){
   }
 }
 
-let state = {count: 0}
 let action = {type: 'INCREASE_COUNT'}
 
 
@@ -21,5 +23,4 @@ function render(){
 }
  
 // call the render function
-dispatch({type: 'INCREASE_COUNT'})
-dispatch({type: 'INCREASE_COUNT'})
+dispatch({ type: '@@INIT' })
