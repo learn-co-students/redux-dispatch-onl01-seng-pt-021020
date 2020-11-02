@@ -1,13 +1,27 @@
-function changeState(state, action){
-  switch (action.type) {
-    case 'INCREASE_COUNT':
+let state = {count: 0};
+
+const changeState = (state, action) => {
+  switch(action.type) {
+    case 'INCREASE':
       return {count: state.count + 1}
-    default:
+    case 'DECREASE':
+      return {count: state.count - 1} 
+    default: 
       return state;
   }
 }
 
-let state = {count: 0}
-let action = {type: 'INCREASE_COUNT'}
+render = () => {document.body.textContent = state.count}
 
-changeState(state, action)
+dispatch = action => {
+  state = changeState(state, action)
+  render()
+}
+
+dispatch({type: 'INCREASE'})
+
+dispatch({type: 'INCREASE'})
+
+dispatch({type: 'INCREASE'})
+
+// state should now have a count of 3
